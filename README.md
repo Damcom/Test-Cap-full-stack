@@ -23,3 +23,14 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+## Startup del progetto in local
+    - profile dev, per avviare il progetto collegandosi a istanza di sqlite:
+        da terminale eseguire i seguenti comandi:
+        1) se non è presente il database my.db o se sono state fatte variazioni in tabelle: cds deploy --to sqlite:my.db
+        2) npm run dev
+    - profile hybrid:
+        assicurarsi di aver copiato le variabili d'ambiente del servizio cap nel file default-env.json
+        permettendo all'app di collegarsi direttamente con il database hana
+       1) npm run hybrid
+
