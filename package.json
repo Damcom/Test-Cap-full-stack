@@ -18,14 +18,35 @@
   },
   "scripts": {
     "start": "cds-serve",
+    "hybrid": "cds watch --profile hybrid",
+    "dev": "cds watch --profile dev",
     "watch-testuser": "cds watch --open testuser/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
       "db": {
-        "kind": "hana"
+        "kind": "hana",
+        "[hybrid]": {
+          "kind": "hana"
+        },
+        "[dev]":{
+          "kind": "sqlite",
+          "credentials": {
+            "url": "my.db"
+          }
+        }
       },
-      "auth": "xsuaa",
+      "auth": {
+        "[production]":{
+           "kind": "xsuaa"
+        },
+        "[dev]": {
+          "kind": "dummy"
+        },
+        "[hybrid]": {
+          "kind": "dummy"
+        }
+      },
       "html5-runtime": true,
       "destinations": true
     },
